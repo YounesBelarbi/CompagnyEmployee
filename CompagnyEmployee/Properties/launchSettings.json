@@ -5,27 +5,35 @@
     "anonymousAuthentication": true,
     "iisExpress": {
       "applicationUrl": "http://localhost:37888",
-      "sslPort": 44321
+      "sslPort": 44321 // configuration https pour IISS
     }
   },
   "profiles": {
     "CompagnyEmployee": {
       "commandName": "Project",
       "dotnetRunMessages": true,
-      "launchBrowser": true,
-      "launchUrl": "weatherforecast",
-      "applicationUrl": "https://localhost:7121;http://localhost:5023",
+      "launchBrowser": false, //Pour le moment on met à false pour eviter le lancement du navigateur, c'est une api donc pas besoin, possibilité d'utiliser Postman pliutôt
+      "launchUrl": "weatherforecast", //url vers laquelle l'application naviguera initialement. Pour qu'elle fonctionne il faut que la propriété launchBrowser soit à true. Par exemple ici au lancement de l'application on sera redirigé vers  https://localhost:5001/weatherforecast
+      "applicationUrl": "https://localhost:7121;http://localhost:5023", //si dans la phase de création on a coché "Configure for HTTPS" on aura une url https et une http 
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
     "IIS Express": {
       "commandName": "IISExpress",
-      "launchBrowser": false, //For now, let’s change the launchBrowser property to false to prevent the web browser from launching on application start.
+      "launchBrowser": false, //même chose que la propriété du même nom dans "profiles"
       "launchUrl": "weatherforecast",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     }
   }
-}
+}s
+
+
+//Ce fichier de configuration détermine le comportement de lancement de l'applications ASP.NET Core. 
+//Il contient les deux configurations pour lancer
+//paramètres pour IIS et les applications auto-hébergées (Kestrel).
+
+
+
