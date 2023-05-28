@@ -14,8 +14,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.ConfigureCors(); // on rajouté cette configuration dans la class ServiceExtensions 
 builder.Services.ConfigureIISIntegrations();
 
+//Cette méthode enregistre uniquement les contrôleurs dans IServiceCollection et non dans les vues ou les pages car ils ne sont pas requis dans le projet d'API Web
 builder.Services.AddControllers();
 
+//avec la méthode build on créé la variable de type WebApplication
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -31,8 +33,9 @@ else
 
 
 
-
+//cette methode permet d'ajouter le middleware pour la redirection de HTTP vers HTTPS
 app.UseHttpsRedirection();
+
 
 //*********** méthodes obligatoires pour la configuration du pipeline de requête ************
 
@@ -51,10 +54,13 @@ app.UseCors("CorsPolicy");
 /*******************************************************************************************/
 
 
+//méthode UseAuthorization qui ajoute le middleware d'autorisation au IApplicationBuilder spécifié pour activer les fonctionnalités d'autorisation
 app.UseAuthorization();
 
+//méthode qui ajoute les endpoints des actions du contrôleur à IEndpointRouteBuilder
 app.MapControllers();
 
+//methode qui exécute l'application et bloque le thread appelant jusqu'à l'arrêt de l'hôte
 app.Run();
 
 
