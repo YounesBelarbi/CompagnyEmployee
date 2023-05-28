@@ -1,3 +1,5 @@
+using CompagnyEmployee.Extensions;
+using Microsoft.AspNetCore.HttpOverrides;
 using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,14 +10,46 @@ var builder = WebApplication.CreateBuilder(args);
 //Autre configuration IHostBuilder et IWebHostBuilder
 
 // Add services to the container.
+//Les service qui ont été écrit dans la class ServiceExtensions seront chargé ici.
+builder.Services.ConfigureCors(); // on rajouté cette configuration dans la class ServiceExtensions 
+builder.Services.ConfigureIISIntegrations();
 
 builder.Services.AddControllers();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+//********** méthodes obligatoires pour la configuration du pipeline de requête ************
+
+if (app.Environment.IsDevelopment())
+    app.UseDeveloperExceptionPage();
+else
+    //app.UseHsts() ajoutera un middleware pour l'utilisation de HSTS, qui ajoute l'en-tête Strict-Transport-Security.
+    app.UseHsts();
+
+/********************************************************************************************/
+
+
+
 
 app.UseHttpsRedirection();
+
+//*********** méthodes obligatoires pour la configuration du pipeline de requête ************
+
+//app.UseStaticFiles() permet d'utiliser des fichiers statiques pour la requête
+//Si le chemin vers le répertoire des fichiers statiques n'est pas défini, il utilisera un dossier wwwroot dans notre projet par défaut
+app.UseStaticFiles();
+
+//app.UseForwardedHeaders() transmettra les en-têtes proxy à la requête actuelle.
+//Cela nous aidera lors du déploiement de l'application
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.All
+});
+app.UseCors("CorsPolicy");
+
+/*******************************************************************************************/
+
 
 app.UseAuthorization();
 

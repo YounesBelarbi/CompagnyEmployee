@@ -2,6 +2,7 @@
 {
     /// <summary>
     /// afin d'organiser le code et ne pas encombrer le fichier Program on separe en methodes d'extension dans cette class
+    /// Ce type de méthode étend le comportement d'un type dans .NET
     /// </summary>
     public static class ServiceExtensions
     {
@@ -18,7 +19,19 @@
                 .AllowAnyOrigin() //reste comme ça pour le dev, mais en prod cette méthode sera remplacé par WithOrigins("https://example.com") qui n'autorise les requêtes qu'a partir de la source
                 .AllowAnyMethod() //reste comme ça pour le dev, mais en prod cette méthode sera remplacé par WithOrigins("POST", "GET") pour definir les method http autorisé
                 .AllowAnyHeader()); // en prod on peut remplacer par la méthode WithHeaders("accept", "contenttype") pour n'autoriser que des en-têtes spécifiques
-            });        
+            });
+
+        /// <summary>
+        /// Les applications ASP.NET Core sont par défaut auto-hébergées
+        /// et si nous voulons héberger notre application sur IIS, 
+        /// nous devons configurer une intégration IIS qui nous aidera éventuellement avec le déploiement sur IIS
+        /// </summary>
+        /// <param name="services"></param>
+        public static void ConfigureIISIntegrations(this IServiceCollection services) =>
+            services.Configure<IISOptions>(options =>
+            {
+
+            });
     }
 }
 
