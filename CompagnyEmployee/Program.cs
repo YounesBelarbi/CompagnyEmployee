@@ -13,6 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 //Les service qui ont été écrit dans la class ServiceExtensions seront chargé ici.
 builder.Services.ConfigureCors(); // on rajouté cette configuration dans la class ServiceExtensions 
 builder.Services.ConfigureIISIntegrations();
+builder.Services.ConfigureLoggerService();
 
 //Cette méthode enregistre uniquement les contrôleurs dans IServiceCollection et non dans les vues ou les pages car ils ne sont pas requis dans le projet d'API Web
 builder.Services.AddControllers();

@@ -1,4 +1,7 @@
-﻿namespace CompagnyEmployee.Extensions
+﻿using Contracts;
+using LoggerService;
+
+namespace CompagnyEmployee.Extensions
 {
     /// <summary>
     /// afin d'organiser le code et ne pas encombrer le fichier Program on separe en methodes d'extension dans cette class
@@ -32,6 +35,13 @@
             {
 
             });
+
+        /// <summary>
+        /// permet de rajouter le service dans .net core ioc container (voir le fichier explication supplementaire
+        /// </summary>
+        /// <param name="services"></param>
+        public static void ConfigureLoggerService(this IServiceCollection services) =>
+            services.AddSingleton<ILoggerManager, LoggerManager>();
     }
 }
 

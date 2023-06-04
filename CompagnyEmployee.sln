@@ -5,9 +5,14 @@ VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompagnyEmployee", "CompagnyEmployee\CompagnyEmployee.csproj", "{2E56A8BC-CFF7-43B4-8943-846ABE0C1A1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{0EDB4DC3-FE14-4802-A7B8-700B1944820B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "Contracts\Contracts.csproj", "{0EDB4DC3-FE14-4802-A7B8-700B1944820B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggerService", "LoggerService\LoggerService.csproj", "{37483ADE-C300-4898-A256-62575E565201}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerService", "LoggerService\LoggerService.csproj", "{37483ADE-C300-4898-A256-62575E565201}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Éléments de solution", "Éléments de solution", "{F1F8D140-32AD-41E9-80CC-D9451F929F85}"
+	ProjectSection(SolutionItems) = preProject
+		explication_supplementaire.md = explication_supplementaire.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
