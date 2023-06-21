@@ -21,7 +21,8 @@ namespace CompagnyEmployee.ContextFactory
 
             //nous pouvons utiliser la méthode GetConnectionString pour accéder à la chaîne de connexion à partir du fichier appsettings.json.
             var builder = new DbContextOptionsBuilder<RepositoryContext>()
-                .UseSqlServer(configuration.GetConnectionString("sqlConnection"));
+                .UseSqlServer(configuration.GetConnectionString("sqlConnection"),
+                b => b.MigrationsAssembly("CompagnyEmployee")); //Nous devons apporter cette modification car l'assemblage de migration n'est pas dans notre projet principal, mais dans le projet Repository. Donc, nous venons de changer le projet pour l'assemblage de migration (il faut indiquer le projet dans lequel sera le dosier Migration, ici en l'occurence le projet principale)
 
             //nous renvoyons une nouvelle instance de notre classe RepositoryContext avec les options fournies.
             return new RepositoryContext(builder.Options);

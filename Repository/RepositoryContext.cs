@@ -1,5 +1,6 @@
 ﻿using Entities.Models;
 using Microsoft.EntityFrameworkCore;
+using Repository.Configuration;
 
 namespace Repository
 {
@@ -14,7 +15,14 @@ namespace Repository
         {            
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new CompanyConfiguration());
+            modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
+        }
+
+        //les table qui seront créées sont les suivantes basé sur les models (entities)
         public DbSet<Company>? Compagnies { get; set; }
-        public DbSet<Employee> MyProperty { get; set; }
+        public DbSet<Employee> Employees { get; set; }
     }
 }
