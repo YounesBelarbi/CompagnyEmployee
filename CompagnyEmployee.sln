@@ -12,11 +12,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Éléments de solution", "Éléments de solution", "{F1F8D140-32AD-41E9-80CC-D9451F929F85}"
 	ProjectSection(SolutionItems) = preProject
 		explication_supplementaire.md = explication_supplementaire.md
+		uml.md = uml.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{BE83D07B-D54D-4941-AE84-D1363354953C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{BE83D07B-D54D-4941-AE84-D1363354953C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{EB8D2D39-9EDC-4A19-AAA2-B091DF257D95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{EB8D2D39-9EDC-4A19-AAA2-B091DF257D95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
