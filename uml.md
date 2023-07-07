@@ -6,6 +6,8 @@ classDiagram
     IRepositoryDuModel2 <|.. RepositoryDuModel2
     IDesignTimeDbContextFactory <|.. RepositoryContextFactory
     IRepositoryManager <|.. RepositoryManager
+    IServiceManager <|.. IModel1Service
+    IServiceManager <|.. IModel2Service
 
     %% generalisation ou heritage:
     RepositoryBase <|-- RepositoryDuModel1
@@ -132,7 +134,25 @@ classDiagram
     %% dasn le projet Repository
     class RepositoryManager {
         repositoryContext
+        IRepositoryDuModel1
+        IRepositoryDuModel2
         save()
     }
+
+    %% dans le projet Contracts.Service
+    class IServiceManager{
+        <<interface>>
+        IServiceDuModel1
+        IServiceDuModel2
+    }
+
+    %% dans le projet Contracts.Service
+    class IModel1Service{
+    }
+
+    %% dans le projet Contracts.Service
+    class IModelService{
+    }
+    
 
 

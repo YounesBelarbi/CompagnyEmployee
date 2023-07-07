@@ -15,6 +15,7 @@ builder.Services.ConfigureCors(); // on rajouté cette configuration dans la clas
 builder.Services.ConfigureIISIntegrations();
 builder.Services.ConfigureLoggerService();
 builder.Services.ConfigureRepositoryManager();
+builder.Services.ConfigureServiceManager();
 
 //Cette méthode enregistre uniquement les contrôleurs dans IServiceCollection et non dans les vues ou les pages car ils ne sont pas requis dans le projet d'API Web
 builder.Services.AddControllers();
