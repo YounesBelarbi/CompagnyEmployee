@@ -13,12 +13,17 @@ classDiagram
     RepositoryBase <|-- RepositoryDuModel1
     RepositoryBase <|-- RepositoryDuModel2    
     DBcontext <|--RepositoryContext 
+    Model1Service <|-- IModel1Service
+    Model2Service <|-- IModel2Service
 
     %% agregation: on a une instance de la class dans l'autre class
     RepositoryContextFactory o-- RepositoryContext
     RepositoryDuModel1 o-- RepositoryContext
     RepositoryDuModel2 o-- RepositoryContext
     RepositoryManager o-- RepositoryContext
+    Model1Service o-- IRepositoryManager
+    Model2Service o-- IRepositoryManager
+
 
     %% etant donne que le RepositoryContext ne se trouve pas dans le projet principal
     %% cette classe aidera notre application à créer une instance DbContext dérivée au moment de la conception, 
@@ -148,10 +153,20 @@ classDiagram
 
     %% dans le projet Contracts.Service
     class IModel1Service{
+        <<interface>>
     }
 
     %% dans le projet Contracts.Service
-    class IModelService{
+    class IModel2Service{
+        <<interface>>
+    }
+
+     %% dans le projet Service
+    class Model1Service{
+    }
+
+    %% dans le projet Service
+    class Model2Service{
     }
     
 
