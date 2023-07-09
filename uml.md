@@ -154,6 +154,10 @@ classDiagram
     %% dans le projet Contracts.Service
     class IModel1Service{
         <<interface>>
+
+
+
+
     }
 
     %% dans le projet Contracts.Service
